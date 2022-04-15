@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "mooseblog"
+version = "0.1.0"
+description = "Small blog about Moose."
+authors = ["b-long <b-long@users.noreply.github.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "3.9.7"
+fastapi = {extras = ["all"], version = "^0.68.1"}
+Faker = "^8.14.0"
+Pillow = "^8.3.2"
+
+[tool.poetry.dev-dependencies]
+black = "^21.9b0"
+pytest = "^6.2.5"
+pydantic = "^1.8.2"
+autopep8 = "^1.5.7"
+rope = "^0.20.1"
+pylint = "^2.11.1"
+pytest-cov = "^2.12.1"
+
+[tool.black]
+line-length = 80
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
