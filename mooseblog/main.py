@@ -56,12 +56,11 @@ async def upload_file(
             binary_content=file_content_bytes,
             article=parent_article,
         )
-        
+
     response["article"] = parent_article
     print(f"Created new file '{file}'")
 
     return response
-
 
 
 @app.post("/articles")

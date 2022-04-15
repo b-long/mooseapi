@@ -8,12 +8,16 @@ from tests.test_fake_images import generate_fake_image
 
 client = TestClient(app)
 
-TEST_ARTICLE_NAME = "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+TEST_ARTICLE_NAME = (
+    "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+)
 TEST_CONTENT = (
     "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took"
     " a galley of type and scrambled it to make a type specimen book."
 )
-TEST_SLUG = "lorem-ipsum-is-simply-dummy-text-of-the-printing-and-typesetting-industry"
+TEST_SLUG = (
+    "lorem-ipsum-is-simply-dummy-text-of-the-printing-and-typesetting-industry"
+)
 BASIC_ARTICLE_DICT = {
     "article_name": TEST_ARTICLE_NAME,
     "content": TEST_CONTENT,
@@ -71,7 +75,9 @@ def test_create_article_lorem_ipsum_cs():
 
 
 def test_upload_image():
-    filename, content_type = generate_fake_image(ImageType.JPEG, output_dir / f"test_upload_image.{ImageType.JPEG}")
+    filename, content_type = generate_fake_image(
+        ImageType.JPEG, output_dir / f"test_upload_image.{ImageType.JPEG}"
+    )
 
     form_data = BASIC_ARTICLE_DICT.copy()
     form_data["new_file_name"] = filename
