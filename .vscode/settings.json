@@ -1,0 +1,8 @@
+{
+    // When working inside this project, we use a Poetry managed Python
+    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+    
+    "python.linting.enabled": true,
+
+}
+
