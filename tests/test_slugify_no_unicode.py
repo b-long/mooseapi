@@ -1,4 +1,9 @@
-from test_common import *
+from test_common import (
+    input_str_kha,
+    inpurt_str_text_in_russian,
+    input_str_text_in_spanish,
+    input_str_ve,
+)
 
 from mooseblog.slugify import django_slugify, faker_slugify
 

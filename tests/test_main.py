@@ -82,17 +82,18 @@ def test_upload_image():
     form_data = BASIC_ARTICLE_DICT.copy()
     form_data["new_file_name"] = filename
 
-    response = client.post(
-        "/upload-file",
-        data=form_data,
-        files={
-            "new_file": (
-                "filename",
-                open(filename, "rb"),
-                content_type,
-            )
-        },
-    )
+    with open(file=filename, mode="rb") as f:
+        response = client.post(
+            "/upload-file",
+            data=form_data,
+            files={
+                "new_file": (
+                    "filename",
+                    f,
+                    content_type,
+                )
+            },
+        )
 
     assert response.status_code == 200
     assert response.json() == {
@@ -117,17 +118,18 @@ def test_upload_file():
     form_data = BASIC_ARTICLE_DICT.copy()
     form_data["new_file_name"] = filename
 
-    response = client.post(
-        "/upload-file",
-        data=form_data,
-        files={
-            "new_file": (
-                "filename",
-                open(filename, "rb"),
-                content_type,
-            )
-        },
-    )
+    with open(file=filename, mode="rb") as f:
+        response = client.post(
+            "/upload-file",
+            data=form_data,
+            files={
+                "new_file": (
+                    "filename",
+                    f,
+                    content_type,
+                )
+            },
+        )
 
     assert response.status_code == 200
     assert response.json() == {
