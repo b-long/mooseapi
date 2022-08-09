@@ -102,3 +102,22 @@ def django_slugify(value, allow_unicode=False):
         )
     value = re.sub(r"[^\w\s-]", "", value.lower())
     return re.sub(r"[-\s]+", "-", value).strip("-_")
+
+def flet_slugify(original: str) -> str:
+    """
+    Copied from https://github.com/flet-dev/flet/pull/154 .  
+
+    Note: this implementation preserves unicode characters.
+
+    Make a string url friendly. Useful for creating routes for navigation.
+    >>> slugify("What's    up?")
+    'whats-up'
+    >>> slugify("  Mitä kuuluu?  ")
+    'mitä-kuuluu'
+    """
+    slugified = original.strip()
+    slugified = " ".join(slugified.split())  # Remove extra spaces between words
+    slugified = slugified.lower()
+    # Remove unicode punctuation
+    slugified = "".join(character for character in slugified if not unicodedata.category(character).startswith("P"))
+    return slugified.replace(" ", "-")
