@@ -102,3 +102,49 @@ def django_slugify(value, allow_unicode=False):
         )
     value = re.sub(r"[^\w\s-]", "", value.lower())
     return re.sub(r"[-\s]+", "-", value).strip("-_")
+
+
+def flet_slugify(original: str) -> str:
+    """
+    Source:
+    https://github.com/flet-dev/flet/blob/7fabc35c62812b3cca99672dd9ae2fde3bc8b84b/sdk/python/flet/utils.py#L113-L134
+
+    Originally merged to Flet:
+    https://github.com/flet-dev/flet/pull/154
+
+    Note: this implementation preserves unicode characters.
+
+    Make a string url friendly. Useful for creating routes for navigation.
+    >>> slugify("What's    up?")
+    'whats-up'
+
+    # Finnish "How are you?"
+    >>> slugify("  Mitä kuuluu?  ")
+    'mitä-kuuluu'
+    """
+    slugified = original.strip()
+    slugified = " ".join(slugified.split())  # Remove extra spaces between words
+    slugified = slugified.lower()
+    """
+    About unicodedata.category(), returns a category like below:
+    * Lu (letter uppercase)
+    * Ll (letter lowercase)
+    * Po (punctuation other)
+
+    >>> print(unicodedata.category(u'A'))
+    Lu
+    >>> print(unicodedata.category(u'b'))
+    Ll
+    >>> print(unicodedata.category(u'?'))
+    Po
+
+    More info: 
+    https://www.askpython.com/python-modules/unicode-in-python-unicodedata
+    """
+    # Remove unicode punctuation
+    slugified = "".join(
+        character
+        for character in slugified
+        if not unicodedata.category(character).startswith("P")
+    )
+    return slugified.replace(" ", "-")
