@@ -73,6 +73,5 @@ def test_slugify_spanish():
     )
     assert unicode_actual_result == expected_result_with_unicode
 
-
     flet_actual_result = flet_slugify(original=input_str_text_in_spanish)
     assert flet_actual_result == expected_result_with_unicode
