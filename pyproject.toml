@@ -7,7 +7,7 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.9"
-fastapi = {extras = ["all"], version = "^0.77.1"}
+fastapi = {extras = ["all"], version = "^0.94.1"}
 Faker = "^8.16.0"
 Pillow = "^9.2.0"
 
