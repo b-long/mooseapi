@@ -1,4 +1,4 @@
-from fastapi import Depends, FastAPI, Form, UploadFile
+from fastapi import Depends, FastAPI, Form, UploadFile, Body
 from fastapi.params import File
 
 from mooseapi.image_processing import decode_image
@@ -73,3 +73,44 @@ async def create_article(article: ArticleModel):
         item_dict.update({"slug": faker_slugify(article.article_name)})
 
     return item_dict
+
+
+@app.post("/typed-arbitrary-data")
+def post_arbitrary_typed_body(payload: dict = Body(...)):
+    """
+    Endpoint to consume aritrary (POST) data, using the 'Body' type.
+
+    Based on this pattern: https://stackoverflow.com/a/65114346/
+    """
+    print(f"Received request {payload}")
+    des_keys = list(payload.keys())
+    print(f"Deserialized JSON keys")
+    print(des_keys)
+    des_values = list(payload.values())
+    print(f"Deserialized JSON values")
+    print(des_values)
+    return {"keys": des_keys, "values": des_values}
+
+
+from typing import Any, Dict, AnyStr, List, Union
+
+JSONObject = Dict[AnyStr, Any]
+JSONArray = List[Any]
+JSONStructure = Union[JSONArray, JSONObject]
+
+
+@app.post("/arbitrary-data")
+def post_arbitrary_body(payload: JSONStructure = None):
+    """
+    Endpoint to consume aritrary (POST) data, which assumes a valid JSON input.
+
+    Based on this pattern: https://stackoverflow.com/a/64382886/
+    """
+    print(f"Received request {payload}")
+    des_keys = list(payload.keys())
+    print(f"Deserialized JSON keys")
+    print(des_keys)
+    des_values = list(payload.values())
+    print(f"Deserialized JSON values")
+    print(des_values)
+    return {"keys": des_keys, "values": des_values}
