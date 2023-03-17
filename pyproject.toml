@@ -11,14 +11,14 @@ fastapi = {extras = ["all"], version = "^0.94.1"}
 Faker = "^8.16.0"
 Pillow = "^9.2.0"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 black = "^22.3.0"
-pytest = "^7.2.0"
+pytest = "^7.2.2"
 pydantic = "^1.9.1"
 autopep8 = "^1.6.0"
 rope = "^0.20.1"
 pylint = "^2.14.5"
-pytest-cov = "^2.12.1"
+pytest-cov = "^4.0.0"
 
 [tool.black]
 line-length = 80
