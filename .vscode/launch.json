@@ -31,7 +31,7 @@
             "request": "launch",
             "module": "uvicorn",
             "args": [
-                "mooseblog.main:app"
+                "mooseapi.main:app"
             ],
             "jinja": true
         }

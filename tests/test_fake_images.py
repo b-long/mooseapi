@@ -4,8 +4,8 @@ from typing import Tuple
 from faker import Faker
 from pydantic import validate_arguments
 
-from mooseblog.conf import output_dir
-from mooseblog.models import ImageType
+from mooseapi.conf import output_dir
+from mooseapi.models import ImageType
 
 """
 A module to generate fake images.

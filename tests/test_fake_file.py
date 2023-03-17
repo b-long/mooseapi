@@ -4,7 +4,7 @@ from typing import Tuple
 
 from faker import Faker
 
-from mooseblog.conf import output_dir
+from mooseapi.conf import output_dir
 from tests.test_common import fake_file_csv_rows_to_generate
 
 """

@@ -1,5 +1,5 @@
-from mooseblog.models import ArticleModel, FileModel, ImageModel
-from mooseblog.permission import Permission, UserModel
+from mooseapi.models import ArticleModel, FileModel, ImageModel
+from mooseapi.permission import Permission, UserModel
 
 
 def test_john_has_image_permission():
