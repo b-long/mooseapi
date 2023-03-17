@@ -37,7 +37,7 @@ jobs:
       - run: python -m pip install black isort
       - run: |
           black . --check
-          isort mooseblog/ tests/
+          isort mooseapi/ tests/
   test:
     needs: linting
     strategy:
@@ -87,7 +87,7 @@ jobs:
         run: poetry install --no-interaction
       - name: Run tests
         run: |
-          poetry run pytest --cov=mooseblog .
+          poetry run pytest --cov=mooseapi .
           # source .venv/bin/activate
           # pytest tests/
           # coverage report

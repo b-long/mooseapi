@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
-from mooseblog.models import ArticleModel, FileModel, ImageModel
+from mooseapi.models import ArticleModel, FileModel, ImageModel
 
 """
 This module is a fake permission system, dealing only with authorization

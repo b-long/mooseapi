@@ -5,7 +5,7 @@ from test_common import (
     input_str_ve,
 )
 
-from mooseblog.slugify import django_slugify, faker_slugify
+from mooseapi.slugify import django_slugify, faker_slugify
 
 UNICODE_ENABLED = False
 

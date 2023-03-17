@@ -1,9 +1,9 @@
 from fastapi.testclient import TestClient
 import pytest
 
-from mooseblog.conf import output_dir
-from mooseblog.main import app
-from mooseblog.models import ArticleModel, ImageType
+from mooseapi.conf import output_dir
+from mooseapi.main import app
+from mooseapi.models import ArticleModel, ImageType
 from tests.test_fake_file import generate_fake_file
 from tests.test_fake_images import generate_fake_image
 

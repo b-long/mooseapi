@@ -1,4 +1,4 @@
-from mooseblog import __version__
+from mooseapi import __version__
 
 
 def test_version():

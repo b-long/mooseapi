@@ -1,9 +1,9 @@
 from fastapi import Depends, FastAPI, Form, UploadFile
 from fastapi.params import File
 
-from mooseblog.image_processing import decode_image
-from mooseblog.models import ArticleModel, FileModel, ImageModel, ImageType
-from mooseblog.slugify import faker_slugify
+from mooseapi.image_processing import decode_image
+from mooseapi.models import ArticleModel, FileModel, ImageModel, ImageType
+from mooseapi.slugify import faker_slugify
 
 """
 Basic FastAPI application.

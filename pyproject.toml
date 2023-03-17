@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "mooseblog"
+name = "mooseapi"
 version = "0.1.0"
-description = "Small blog about Moose."
+description = "A project template for API building."
 authors = ["b-long <b-long@users.noreply.github.com>"]
 license = "MIT"
 
