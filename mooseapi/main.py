@@ -1,5 +1,6 @@
 from fastapi import Depends, FastAPI, Form, UploadFile, Body
 from fastapi.params import File
+import uvicorn
 
 from mooseapi.image_processing import decode_image
 from mooseapi.models import ArticleModel, FileModel, ImageModel, ImageType
@@ -114,3 +115,7 @@ def post_arbitrary_body(payload: JSONStructure = None):
     print(f"Deserialized JSON values")
     print(des_values)
     return {"keys": des_keys, "values": des_values}
+
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)
